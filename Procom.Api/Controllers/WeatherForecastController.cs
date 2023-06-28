@@ -1,5 +1,8 @@
+using Azure.Messaging.ServiceBus;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Procom.Api.Models;
+
 
 namespace Procom.Api.Controllers
 {
@@ -13,10 +16,12 @@ namespace Procom.Api.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -38,5 +43,6 @@ namespace Procom.Api.Controllers
         {
             return Ok(new {prop1="prop1 value", prop2="prop2 value"});
         }
+
     }
 }

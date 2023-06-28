@@ -7,6 +7,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddDbContext<SlushboxContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("SlushboxDB") ?? throw new InvalidOperationException("Connection string 'Slushbox' database not found.")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
