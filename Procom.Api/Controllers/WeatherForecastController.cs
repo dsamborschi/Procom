@@ -30,5 +30,13 @@ namespace Procom.Api.Controllers
             })
             .ToArray();
         }
+
+
+        [HttpGet]
+        [Route("/ping")]
+        public ActionResult<IEnumerable<string>> Ping()
+        {
+            return Ok(new {prop1="prop1 value", prop2="prop2 value"});
+        }
     }
 }
