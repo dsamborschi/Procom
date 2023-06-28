@@ -1,3 +1,5 @@
+using Procom.Api.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,9 +8,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-//builder.Services.AddDbContext<SlushboxContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("SlushboxDB") ?? throw new InvalidOperationException("Connection string 'Slushbox' database not found.")));
+builder.Services.AddDbContexts(builder.Configuration);
 
 var app = builder.Build();
 
